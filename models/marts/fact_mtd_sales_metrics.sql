@@ -4,6 +4,15 @@
 -- Grain: sku_id, location_id, channel_name, month_start
 -- Downstream use: AWS QuickSight dashboards
 
+
+-- Challenge:
+-- Marketplace channels such as Flipkart/Myntra/Amazon vendors often follow multi-GRN workflows where shipments
+-- are received in parts. In such cases, order quantity may not reflect the actual committed demand for the month.
+-- If standard fill rate logic is applied, it inflates unfulfilled quantity/value and misrepresents supply performance.
+-- This model standardizes MTD sales and PO value metrics by introducing effective_order_qty and effective_po_value
+-- logic to correctly calculate fill rate and unfulfilled value for multi-GRN channels.
+
+
 WITH base AS (
     SELECT *
     FROM {{ ref('int_mtd_channel_sales') }}
