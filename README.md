@@ -1,4 +1,4 @@
-## Supply Chain Analytics – Core Metrics (SQL)
+## Supply Chain Analytics Engineering – Core Metrics (SQL)
 
 This project demonstrates how to model key
 supply chain KPIs used by operations and
